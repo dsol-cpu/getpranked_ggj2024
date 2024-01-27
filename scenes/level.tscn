@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://w22rocpuoyjd"]
+
+[ext_resource type="PackedScene" uid="uid://iwbvotu2h383" path="res://scenes/camera3dcomponent.tscn" id="1_644eu"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_lwi70"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uy8l1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf7sw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j00pe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_v61p8"]
+
+[node name="1" type="Node3D"]
+script = ExtResource("1_lwi70")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_uy8l1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_yf7sw")
+
+[node name="Wall" type="StaticBody3D" parent="."]
+transform = Transform3D(200, 0, 0, 0, 150, 0, 0, 0, 1, 0, 75, -100)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall"]
+shape = SubResource("BoxShape3D_j00pe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+mesh = SubResource("BoxMesh_v61p8")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Wall2" type="StaticBody3D" parent="."]
+transform = Transform3D(-8.74228e-06, 0, 1, 0, 150, 0, -200, 0, -4.37114e-08, 100, 75, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2"]
+shape = SubResource("BoxShape3D_j00pe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2"]
+mesh = SubResource("BoxMesh_v61p8")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Wall3" type="StaticBody3D" parent="."]
+transform = Transform3D(-8.74228e-06, 0, 1, 0, 150, 0, -200, 0, -4.37114e-08, -100, 75, 0)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3"]
+shape = SubResource("BoxShape3D_j00pe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3"]
+mesh = SubResource("BoxMesh_v61p8")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Wall4" type="StaticBody3D" parent="."]
+transform = Transform3D(200, 0, 0, 0, 150, 0, 0, 0, 1, 0, 75, 100)
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4"]
+shape = SubResource("BoxShape3D_j00pe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4"]
+mesh = SubResource("BoxMesh_v61p8")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Ceiling" type="StaticBody3D" parent="."]
+transform = Transform3D(-8.74228e-06, 0, 1, 0, 150, 0, -200, 0, -4.37114e-08, 100, 75, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling"]
+shape = SubResource("BoxShape3D_j00pe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling"]
+mesh = SubResource("BoxMesh_v61p8")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="Camera3DComponent" parent="." instance=ExtResource("1_644eu")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -150, 150, 150)

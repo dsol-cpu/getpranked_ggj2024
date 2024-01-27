@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://iwbvotu2h383"]
+
+[ext_resource type="Script" path="res://scripts/camera3dcomponent.gd" id="1_1h26c"]
+
+[node name="Camera3DComponent" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 3, 0)
+script = ExtResource("1_1h26c")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj05sfggg1oo7"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_dkhcq"]
+[ext_resource type="PackedScene" uid="uid://dppqkp2iniolf" path="res://scenes/main_menu.tscn" id="2_qvrdd"]
+[ext_resource type="PackedScene" uid="uid://cfux163gpp67e" path="res://scenes/level_manager.tscn" id="3_0nnqi"]
+[ext_resource type="PackedScene" uid="uid://bsepqhb1jcrbh" path="res://scenes/player.tscn" id="4_uj5sf"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_dkhcq")
+main_menu = NodePath("MainMenu")
+level_manager = NodePath("LevelManager")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_qvrdd")]
+
+[node name="LevelManager" parent="." instance=ExtResource("3_0nnqi")]
+player = NodePath("Player2")
+
+[node name="Player2" parent="LevelManager" instance=ExtResource("4_uj5sf")]

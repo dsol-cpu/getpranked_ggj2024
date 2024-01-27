@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfux163gpp67e"]
+
+[ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_a0aln"]
+[ext_resource type="PackedScene" uid="uid://w22rocpuoyjd" path="res://scenes/level.tscn" id="2_vnf1b"]
+
+[node name="LevelManager" type="Node"]
+script = ExtResource("1_a0aln")
+
+[node name="Outdoor" parent="." instance=ExtResource("2_vnf1b")]
+visible = false
+spawn_position = Vector3(0, 1, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Outdoor"]
+
+[node name="LivingRoom" parent="." instance=ExtResource("2_vnf1b")]
+visible = false
+spawn_position = Vector3(0, 1, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LivingRoom"]
+
+[node name="Bedroom" parent="." instance=ExtResource("2_vnf1b")]
+visible = false
+spawn_position = Vector3(0, 1, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Bedroom"]

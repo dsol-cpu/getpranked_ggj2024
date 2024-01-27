@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyw25oc61kvx7"]
+
+[ext_resource type="PackedScene" uid="uid://5peteh06oxh1" path="res://assets/art/cat.glb" id="1_r6acj"]
+
+[node name="cat" instance=ExtResource("1_r6acj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5346, 0)
