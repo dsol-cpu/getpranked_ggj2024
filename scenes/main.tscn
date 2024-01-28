@@ -10,8 +10,13 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_dkhcq")
+game_music = NodePath("AudioStreamPlayer")
 main_menu = NodePath("MainMenu")
 level_manager = NodePath("LevelManager")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_l3v75")
+volume_db = 13.0
 
 [node name="MainMenu" parent="." instance=ExtResource("2_qvrdd")]
 
@@ -22,10 +27,8 @@ victory_screen = NodePath("../VictoryScreen")
 
 [node name="Player2" parent="LevelManager" instance=ExtResource("4_uj5sf")]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_l3v75")
-
 [node name="PrankTaskUI" parent="." instance=ExtResource("6_ctdoh")]
 level_manager = NodePath("../LevelManager")
 
 [node name="VictoryScreen" parent="." instance=ExtResource("7_660tm")]
+game_music = NodePath("../AudioStreamPlayer")

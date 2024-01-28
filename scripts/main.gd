@@ -1,5 +1,7 @@
 extends Node
 
+@export var game_music : NodePath
+@onready var game_music_node: AudioStreamPlayer = get_node(game_music)
 
 @export var main_menu : NodePath
 @onready var main_menu_node : Control = get_node(main_menu)
@@ -14,6 +16,8 @@ func _ready():
 	var quit_level_button: QuitButton = $MainMenu/MarginContainer/VBoxContainer/ButtonContainer/QuitButton
 
 	play_level_button.play_level_button_pressed.connect(_on_play_level_button_pressed)
+	
+	game_music_node._set_playing(true)
 	#quit_level_button.quit_button_pressed.connect(_on_quit_button_pressed)
 
 func _on_play_level_button_pressed():
