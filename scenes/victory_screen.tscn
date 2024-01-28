@@ -50,4 +50,4 @@ script = ExtResource("3_seahd")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_dwa06")
-volume_db = 16.0
+volume_db = 32.0
