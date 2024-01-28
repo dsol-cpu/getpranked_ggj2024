@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dppqkp2iniolf"]
+[gd_scene load_steps=7 format=3 uid="uid://dppqkp2iniolf"]
 
 [ext_resource type="FontFile" uid="uid://b6q2v83ga4vpa" path="res://assets/fonts/Namecat.ttf" id="1_sxoek"]
 [ext_resource type="Texture2D" uid="uid://crhvgholun2ge" path="res://icon.svg" id="2_6slte"]
 [ext_resource type="Script" path="res://scripts/continue_button.gd" id="3_rg6j0"]
 [ext_resource type="Script" path="res://scripts/play_button.gd" id="4_y5r6d"]
 [ext_resource type="Script" path="res://scripts/quit_button.gd" id="5_wcngp"]
-
-[sub_resource type="Theme" id="Theme_6oev7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mh2rt"]
 font = ExtResource("1_sxoek")
@@ -20,14 +18,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_6oev7")
+color = Color(0.505882, 0.505882, 0.509804, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

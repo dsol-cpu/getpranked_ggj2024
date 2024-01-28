@@ -4,6 +4,9 @@ class_name LevelManager
 @export var player : NodePath
 @onready var player_node : Player = get_node(player)
 
+@export var prank_task_ui : NodePath
+@onready var prank_task_ui_node : PrankTaskUI = get_node(prank_task_ui)
+
 var level_list = []
 var current_level : int
 
@@ -18,7 +21,11 @@ func load_level(level_num : int):
 	current_level = level_num
 	var spawn_position : Vector3 = level_list[level_num].get_spawn_position()
 	player_node.set_position(spawn_position)
+	player_node.set_level_active(true)
 	level_list[level_num].set_visible(true)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	prank_task_ui_node.load_tasks(level_num)
 	
 	# assign prank task
 	# make task UI visible

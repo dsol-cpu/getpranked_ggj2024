@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs8oxro5srqje"]
+
+[ext_resource type="Script" path="res://scripts/prank_task_element.gd" id="1_d1nj1"]
+
+[node name="PrankTaskElement" type="HBoxContainer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d1nj1")
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Do this thing please"

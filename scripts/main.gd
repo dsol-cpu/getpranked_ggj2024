@@ -9,6 +9,8 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.$MainMenu
 func _ready():
+
+	
 	var play_level_button : PlayButton = $MainMenu/MarginContainer/VBoxContainer/ButtonContainer/PlayButton
 	var continue_level_button: ContinueButton = $MainMenu/MarginContainer/VBoxContainer/ButtonContainer/ContinueButton
 	var quit_level_button: QuitButton = $MainMenu/MarginContainer/VBoxContainer/ButtonContainer/QuitButton

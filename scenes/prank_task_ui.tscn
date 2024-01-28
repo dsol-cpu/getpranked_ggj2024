@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqouac36mx6h4"]
+
+[ext_resource type="Script" path="res://scripts/prank_task_ui.gd" id="1_7hski"]
+[ext_resource type="PackedScene" uid="uid://bs8oxro5srqje" path="res://scenes/prank_task_element.tscn" id="2_qxsxh"]
+
+[node name="PrankTaskUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7hski")
+vbox_container = NodePath("VBoxContainer")
+prank_task_element = NodePath("PrankTaskElement")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PrankTaskElement" parent="." instance=ExtResource("2_qxsxh")]
+layout_mode = 0
+anchors_preset = 0

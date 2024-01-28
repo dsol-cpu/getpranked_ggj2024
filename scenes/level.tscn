@@ -75,5 +75,8 @@ shape = SubResource("BoxShape3D_j00pe")
 mesh = SubResource("BoxMesh_v61p8")
 skeleton = NodePath("../CollisionShape3D")
 
-[node name="Camera3DComponent" parent="." instance=ExtResource("1_644eu")]
+[node name="Camera Target" type="Node3D" parent="."]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -150, 150, 150)
+
+[node name="Camera3DComponent" parent="Camera Target" instance=ExtResource("1_644eu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
