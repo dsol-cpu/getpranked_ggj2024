@@ -7,7 +7,9 @@ class_name Player
 const MOVE_LERP_VALUE : float = 0.5
 var driving_sound_volume : float 
 var level_active : bool = false
-const SPEED = 25.0
+
+const WEIGHT = 1.1 
+const SPEED = 35.0
 const JUMP_VELOCITY = 8.5
 const MOVING_SOUND_VOLUME_DB = 16.495
 
@@ -20,8 +22,8 @@ func _physics_process(delta):
 	# Add the gravity.
 	if(level_active):
 		if not is_on_floor():
-			velocity.y -= gravity * delta
-		
+			velocity.y -= gravity * delta * WEIGHT
+
 		# Handle jump.
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY

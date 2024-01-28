@@ -1,7 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://w22rocpuoyjd"]
+[gd_scene load_steps=10 format=3 uid="uid://w22rocpuoyjd"]
 
 [ext_resource type="PackedScene" uid="uid://iwbvotu2h383" path="res://scenes/camera3dcomponent.tscn" id="1_644eu"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_lwi70"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_p3xjg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_38ty1"]
+next_pass = SubResource("FogMaterial_p3xjg")
+
+[sub_resource type="SphereMesh" id="SphereMesh_3f633"]
+material = SubResource("StandardMaterial3D_38ty1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uy8l1"]
 
@@ -13,6 +21,10 @@
 
 [node name="1" type="Node3D"]
 script = ExtResource("1_lwi70")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(750, 0, 0, 0, 750, 0, 0, 0, 750, 0, 0, 0)
+mesh = SubResource("SphereMesh_3f633")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0.5, 0)
