@@ -1,18 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://pkxru2w3blgi"]
+[gd_scene load_steps=6 format=3 uid="uid://pkxru2w3blgi"]
 
 [ext_resource type="FontFile" uid="uid://b6q2v83ga4vpa" path="res://assets/fonts/Namecat.ttf" id="1_43orr"]
+[ext_resource type="Script" path="res://scripts/victory_screen.gd" id="1_gfadu"]
+[ext_resource type="AudioStream" uid="uid://dehhb0t1syj2e" path="res://assets/audio/stage_clear_jingle.ogg" id="3_dwa06"]
+[ext_resource type="Script" path="res://scripts/quit_button.gd" id="3_seahd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aouvc"]
 font = ExtResource("1_43orr")
 font_size = 50
 
 [node name="VictoryScreen" type="Control"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gfadu")
+victory_sound = NodePath("AudioStreamPlayer3D")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -37,6 +43,11 @@ label_settings = SubResource("LabelSettings_aouvc")
 layout_mode = 2
 alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "NEXT"
+script = ExtResource("3_seahd")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_dwa06")
+volume_db = 16.0

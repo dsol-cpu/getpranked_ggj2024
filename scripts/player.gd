@@ -4,30 +4,45 @@ class_name Player
 @export var driving_sound : NodePath
 @onready var driving_sound_node : AudioStreamPlayer3D = get_node(driving_sound) 
 
+@export var jumping_sound: NodePath
+@onready var jumping_sound_node:  AudioStreamPlayer3D = get_node(jumping_sound)
+
 const MOVE_LERP_VALUE : float = 0.5
 var driving_sound_volume : float 
 var level_active : bool = false
 
 const WEIGHT = 1.1 
-const SPEED = 35.0
+const SPEED = 50.0
 const JUMP_VELOCITY = 8.5
 const MOVING_SOUND_VOLUME_DB = 16.495
+
+signal interact_button_pressed
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 func set_level_active(activity : bool):
 	level_active = activity
-	
+
 func _physics_process(delta):
 	# Add the gravity.
 	if(level_active):
 		if not is_on_floor():
 			velocity.y -= gravity * delta * WEIGHT
-
+		
+		if Input.is_action_just_pressed("interact"):
+			emit_signal("interact_button_pressed")
+		
 		# Handle jump.
 		if Input.is_action_just_pressed("jump") and is_on_floor():
 			velocity.y = JUMP_VELOCITY
-
+			if !jumping_sound_node.playing:
+				jumping_sound_node._set_playing(true)
+				jumping_sound_node.set_volume_db(MOVING_SOUND_VOLUME_DB)
+				print('alright')
+		
+		if jumping_sound_node.playing and is_on_floor():
+			jumping_sound_node._set_playing(false)
+		
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
 		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")

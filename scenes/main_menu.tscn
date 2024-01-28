@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dppqkp2iniolf"]
 
 [ext_resource type="FontFile" uid="uid://b6q2v83ga4vpa" path="res://assets/fonts/Namecat.ttf" id="1_sxoek"]
-[ext_resource type="Texture2D" uid="uid://crhvgholun2ge" path="res://icon.svg" id="2_6slte"]
+[ext_resource type="Texture2D" uid="uid://h6vwkpw7hbei" path="res://assets/art/cat_face.png" id="2_xlwih"]
 [ext_resource type="Script" path="res://scripts/continue_button.gd" id="3_rg6j0"]
 [ext_resource type="Script" path="res://scripts/play_button.gd" id="4_y5r6d"]
 [ext_resource type="Script" path="res://scripts/quit_button.gd" id="5_wcngp"]
@@ -50,8 +50,9 @@ text = "GET PRANKED"
 label_settings = SubResource("LabelSettings_mh2rt")
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
-position = Vector2(146.5, -107)
-texture = ExtResource("2_6slte")
+position = Vector2(144, -137)
+scale = Vector2(0.18682, 0.18682)
+texture = ExtResource("2_xlwih")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

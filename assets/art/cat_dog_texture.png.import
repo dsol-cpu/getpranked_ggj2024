@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bix7f8465r3yd"
 path.s3tc="res://.godot/imported/cat_dog_texture.png-81de74e5d51803fc58b2e11324a17f2f.s3tc.ctex"
+path.etc2="res://.godot/imported/cat_dog_texture.png-81de74e5d51803fc58b2e11324a17f2f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://assets/art/cat_dog_texture.png"
-dest_files=["res://.godot/imported/cat_dog_texture.png-81de74e5d51803fc58b2e11324a17f2f.s3tc.ctex"]
+dest_files=["res://.godot/imported/cat_dog_texture.png-81de74e5d51803fc58b2e11324a17f2f.s3tc.ctex", "res://.godot/imported/cat_dog_texture.png-81de74e5d51803fc58b2e11324a17f2f.etc2.ctex"]
 
 [params]
 

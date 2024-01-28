@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0388v8c1twjr"]
+
+[ext_resource type="PackedScene" uid="uid://b04rli2ysxqr0" path="res://assets/art/grill.glb" id="1_i6euf"]
+[ext_resource type="Script" path="res://scripts/prank_object.gd" id="2_a2r4y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dffhx"]
+albedo_color = Color(1, 0.0901961, 0.0901961, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_av76f"]
+
+[node name="Grill" instance=ExtResource("1_i6euf")]
+script = ExtResource("2_a2r4y")
+interaction_area_3d = NodePath("Area3D")
+
+[node name="Grill" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_dffhx")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 3.34703, 0)
+shape = SubResource("BoxShape3D_av76f")

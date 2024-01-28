@@ -1,30 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfux163gpp67e"]
+[gd_scene load_steps=6 format=3 uid="uid://cfux163gpp67e"]
 
 [ext_resource type="Script" path="res://scripts/level_manager.gd" id="1_a0aln"]
 [ext_resource type="PackedScene" uid="uid://w22rocpuoyjd" path="res://scenes/level.tscn" id="2_vnf1b"]
-[ext_resource type="PackedScene" uid="uid://bqouac36mx6h4" path="res://scenes/prank_task_ui.tscn" id="3_ikivp"]
+[ext_resource type="PackedScene" uid="uid://celp51qtenx5s" path="res://scenes/milk_bottle.tscn" id="3_q675y"]
+[ext_resource type="PackedScene" uid="uid://d0388v8c1twjr" path="res://scenes/grill.tscn" id="4_lshx0"]
+[ext_resource type="AudioStream" uid="uid://bcggu1yixhp0w" path="res://assets/audio/sfx_breakGlass_wip1.ogg" id="4_unurt"]
 
 [node name="LevelManager" type="Node"]
 script = ExtResource("1_a0aln")
-prank_task_ui = NodePath("PrankTaskUI")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
 [node name="Outdoor" parent="." instance=ExtResource("2_vnf1b")]
 visible = false
 spawn_position = Vector3(0, 1, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Outdoor"]
+[node name="MilkBottle" parent="Outdoor" instance=ExtResource("3_q675y")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 2, -85)
+sound_effect = NodePath("AudioStreamPlayer3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Outdoor/MilkBottle"]
+stream = ExtResource("4_unurt")
+volume_db = 30.0
+
+[node name="Grill" parent="Outdoor" instance=ExtResource("4_lshx0")]
+transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, -30, 3, -79)
+sound_effect = NodePath("AudioStreamPlayer3D")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Outdoor/Grill"]
+stream = ExtResource("4_unurt")
+volume_db = 30.0
 
 [node name="LivingRoom" parent="." instance=ExtResource("2_vnf1b")]
 visible = false
 spawn_position = Vector3(0, 1, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LivingRoom"]
-
 [node name="Bedroom" parent="." instance=ExtResource("2_vnf1b")]
 visible = false
 spawn_position = Vector3(0, 1, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Bedroom"]
-
-[node name="PrankTaskUI" parent="." instance=ExtResource("3_ikivp")]
-visible = false

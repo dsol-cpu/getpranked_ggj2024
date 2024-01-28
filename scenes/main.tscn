@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj05sfggg1oo7"]
+[gd_scene load_steps=8 format=3 uid="uid://cj05sfggg1oo7"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_dkhcq"]
 [ext_resource type="PackedScene" uid="uid://dppqkp2iniolf" path="res://scenes/main_menu.tscn" id="2_qvrdd"]
 [ext_resource type="PackedScene" uid="uid://cfux163gpp67e" path="res://scenes/level_manager.tscn" id="3_0nnqi"]
 [ext_resource type="PackedScene" uid="uid://bsepqhb1jcrbh" path="res://scenes/player.tscn" id="4_uj5sf"]
+[ext_resource type="AudioStream" uid="uid://cgs1w28c2flhe" path="res://assets/audio/gameplay_theme.ogg" id="5_l3v75"]
+[ext_resource type="PackedScene" uid="uid://bqouac36mx6h4" path="res://scenes/prank_task_ui.tscn" id="6_ctdoh"]
+[ext_resource type="PackedScene" uid="uid://pkxru2w3blgi" path="res://scenes/victory_screen.tscn" id="7_660tm"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_dkhcq")
@@ -14,5 +17,15 @@ level_manager = NodePath("LevelManager")
 
 [node name="LevelManager" parent="." instance=ExtResource("3_0nnqi")]
 player = NodePath("Player2")
+prank_task_ui = NodePath("../PrankTaskUI")
+victory_screen = NodePath("../VictoryScreen")
 
 [node name="Player2" parent="LevelManager" instance=ExtResource("4_uj5sf")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_l3v75")
+
+[node name="PrankTaskUI" parent="." instance=ExtResource("6_ctdoh")]
+level_manager = NodePath("../LevelManager")
+
+[node name="VictoryScreen" parent="." instance=ExtResource("7_660tm")]

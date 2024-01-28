@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://w22rocpuoyjd"]
+[gd_scene load_steps=13 format=3 uid="uid://w22rocpuoyjd"]
 
 [ext_resource type="PackedScene" uid="uid://iwbvotu2h383" path="res://scenes/camera3dcomponent.tscn" id="1_644eu"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_lwi70"]
@@ -13,11 +13,20 @@ material = SubResource("StandardMaterial3D_38ty1")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uy8l1"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ownk"]
+albedo_color = Color(1, 1, 0.388235, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_yf7sw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j00pe"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2cex"]
+albedo_color = Color(0.6, 0.94902, 0.713726, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_v61p8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uoafe"]
+albedo_color = Color(0.6, 0.435294, 0.117647, 1)
 
 [node name="1" type="Node3D"]
 script = ExtResource("1_lwi70")
@@ -33,6 +42,7 @@ transform = Transform3D(200, 0, 0, 0, 1, 0, 0, 0, 200, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_uy8l1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+material_override = SubResource("StandardMaterial3D_2ownk")
 mesh = SubResource("BoxMesh_yf7sw")
 
 [node name="Wall" type="StaticBody3D" parent="."]
@@ -42,6 +52,7 @@ transform = Transform3D(200, 0, 0, 0, 150, 0, 0, 0, 1, 0, 75, -100)
 shape = SubResource("BoxShape3D_j00pe")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall"]
+material_override = SubResource("StandardMaterial3D_c2cex")
 mesh = SubResource("BoxMesh_v61p8")
 skeleton = NodePath("../CollisionShape3D")
 
@@ -84,6 +95,7 @@ transform = Transform3D(-8.74228e-06, 0, 1, 0, 150, 0, -200, 0, -4.37114e-08, 10
 shape = SubResource("BoxShape3D_j00pe")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling"]
+material_override = SubResource("StandardMaterial3D_uoafe")
 mesh = SubResource("BoxMesh_v61p8")
 skeleton = NodePath("../CollisionShape3D")
 
