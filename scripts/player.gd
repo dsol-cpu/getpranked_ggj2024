@@ -14,7 +14,7 @@ var level_active : bool = false
 const WEIGHT = 1.1 
 const SPEED = 50.0
 const JUMP_VELOCITY = 8.5
-const MOVING_SOUND_VOLUME_DB = 16.495
+const MOVING_SOUND_VOLUME_DB = 30
 
 signal interact_button_pressed
 
@@ -37,8 +37,8 @@ func _physics_process(delta):
 			velocity.y = JUMP_VELOCITY
 			if !jumping_sound_node.playing:
 				jumping_sound_node._set_playing(true)
-				jumping_sound_node.set_volume_db(MOVING_SOUND_VOLUME_DB)
-				print('alright')
+				jumping_sound_node.set_volume_db(50)
+
 		
 		if jumping_sound_node.playing and is_on_floor():
 			jumping_sound_node._set_playing(false)
@@ -52,8 +52,10 @@ func _physics_process(delta):
 		
 		if direction:
 			if(!driving_sound_node.playing):
-				driving_sound_node._set_playing(true)
+				print("not playing so play dumbass")
+				driving_sound_node.play()
 				driving_sound_node.set_volume_db(MOVING_SOUND_VOLUME_DB)
+				
 			velocity.x = lerp(velocity.x, direction.x * SPEED, MOVE_LERP_VALUE)
 			velocity.z = lerp(velocity.z, direction.z * SPEED, MOVE_LERP_VALUE)
 			
