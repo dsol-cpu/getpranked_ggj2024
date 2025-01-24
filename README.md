@@ -1,4 +1,2 @@
-Installation Instructions:
-
-1. Download as a zip
-2. Run the .exe
+Play Instructions:
+1. Download and run the .exe
